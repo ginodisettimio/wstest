@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebSockets</title>
+    <style>
+      body {
+        background-color: antiquewhite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="n">0</p>
+  </body>
+  <script>
+    const socket = new WebSocket("ws://localhost:8080/ws");
+    socket.onmessage = (event) =>
+      (document.getElementById("n").textContent = event.data);
+  </script>
+</html>   
